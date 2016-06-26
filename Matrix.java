@@ -85,31 +85,4 @@ public class Matrix {
 			}
 		return product;
 	}
-	static int a(int n)
-	{
-		return n == 1 ? 1 : (2 * a(n-1) + 2 * b(n-1));
-	}
-	static int b(int n)
-	{
-		return n == 1 ? 0 : (a(n-1) - 9 * b(n-1));
-	}
-	public static void main(String[] args)
-	{
-		Matrix transformationMatrix = new Matrix(2,2);
-		Matrix FibonacciNumbers = new Matrix(2,1);      
-		FibonacciNumbers.fillEntryOfMatrix(1, 1, 1);
-		FibonacciNumbers.fillEntryOfMatrix(2, 1, 0);
-		transformationMatrix.fillEntryOfMatrix(1, 1, 2);
-		transformationMatrix.fillEntryOfMatrix(1, 2, 2);
-		transformationMatrix.fillEntryOfMatrix(2, 1, 1);
-		transformationMatrix.fillEntryOfMatrix(2, 2, -9);
-		long startTime = System.nanoTime();
-		for(int i = 1; i <= 300; i++)
-		{
-			System.out.println(a(i) + "     " + b(i));
-		//	System.out.println(FibonacciNumbers.getEntryOfMatrix(1,1) + "      " + FibonacciNumbers.getEntryOfMatrix(2,1));
-		//	FibonacciNumbers = multiplyTwoMatricies(transformationMatrix,FibonacciNumbers);
-		}
-		System.out.println((System.nanoTime() - startTime)/1000000);
-	}
 }
